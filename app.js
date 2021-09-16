@@ -9,16 +9,21 @@ const USS = {
         let randomNum = Math.random();
         console.log('USS Accuracy threshold is', randomNum);
         if(randomNum < this.accuracy) {
+            console.log("You are laucnhing attack.....")
             console.log("You hit the alien! Well done!")
             target.hull = target.hull - this.firepower;
             console.log(`The alien left ${target.hull} hull points.`)
-            if(target.hull<0) {
+            if(target.hull<=0) {
                 target.isAlive = false;
                 console.log(`The alien ship is destroyed! You have saved the world!`)
             }
             else {
-                console.log("Awww you missed the hit....")
+                console.log("Keep going Captain!")
             }
+            
+        }
+        else {
+            console.log("Awwww you missed the hit.....")
         }
     }
 }
@@ -30,18 +35,22 @@ const alien = {
     isAlive: true,
     attack(target) {
         let randomNum = Math.random();
+        console.log("Alien is launching attack.....")
         console.log('Alien Accuracy threshold is', randomNum);
         if(randomNum < this.accuracy) {
             console.log("You were hitted by alien, watch out!")
             target.hull = target.hull - this.firepower;
             console.log(`You left ${target.hull} hull points.`)
-            if(target.hull<0) {
+            if(target.hull<=0) {
                 target.isAlive = false;
                 console.log(`You have been defeated....`)
             }
             else {
-                console.log("Well done Captain, its your turn now!")
+                console.log("Ouch! Watch out Captain!")
             }
+        }
+        else {
+            console.log("You dodged the attack, well done Captain! Its your turn now!")
         }
     }
 }
