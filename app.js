@@ -45,3 +45,14 @@ const alien = {
         }
     }
 }
+
+const fight = (player, computer) => {
+    while(player.isAlive && computer.isAlive) {
+        player.attack(computer);
+        if(computer.isAlive) {
+            computer.attack(player)
+        }
+    }
+}
+
+fight(USS, alien)
